@@ -43,125 +43,166 @@ import { ReactComponent as Turtle } from "./../assets/svg/animals/turtle.svg";
 export const AnimalCards = [
     {
         svg: <Alpaca />,
+        name: "alpaca"
     },
     {
         svg: <Ant />,
+        name: "ant"
     },
     {
         svg: <Beetle />,
+        name: "beetle"
     },
     {
         svg: <Butterfly />,
+        name: "butterfly"
     },
     {
         svg: <Camel />,
+        name: "camel"
     },
     {
         svg: <Cat />,
+        name: "cat"
     },
     {
         svg: <Cobra />,
+        name: "cobra"
     },
     {
         svg: <Cow />,
+        name: "cow"
     },
     {
         svg: <Crab />,
+        name: "crab"
     },
     {
         svg: <Crocodile />,
+        name: "crocodile"
     },
     {
         svg: <Dog />,
+        name: "dog"
     },
     {
         svg: <Duck />,
+        name: "duck"
     },
     {
         svg: <Elephant />,
+        name: "elephant"
     },
     {
         svg: <Fish />,
+        name: "fish"
     },
     {
         svg: <Frog />,
+        name: "frog"
     },
     {
         svg: <Giraffe />,
+        name: "giraffe"
     },
     {
         svg: <Hippo />,
+        name: "hippo"
     },
     {
         svg: <Kangaroo />,
+        name: "kangaroo"
     },
     {
         svg: <Lion />,
+        name: "lion"
     },
     {
         svg: <Manatee />,
+        name: "manatee"
     },
     {
         svg: <Sheep />,
+        name: "sheep"
     },
     {
         svg: <Monkey />,
+        name: "monkey"
     },
     {
         svg: <Mouse />,
+        name: "mouse"
     },
     {
         svg: <Octopus />,
+        name: "octopus"
     },
     {
         svg: <Ostrich />,
+        name: "ostrich"
     },
     {
         svg: <Owl />,
+        name: "owl"
     },
     {
         svg: <Panda />,
+        name: "panda"
     },
     {
         svg: <Pelican />,
+        name: "pelican"
     },
     {
         svg: <Penguin />,
+        name: "penguin"
     },
     {
         svg: <Pig />,
+        name: "pig"
     },
     {
         svg: <Rabbit />,
+        name: "rabbit"
     },
     {
         svg: <Raccoon />,
+        name: "raccoon"
     },
     {
         svg: <Rhino />,
+        name: "rhino"
     },
     {
         svg: <Rooster />,
+        name: "rooster"
     },
     {
         svg: <Shark />,
+        name: "shark"
     },
     {
         svg: <Sloth />,
+        name: "sloth"
     },
     {
         svg: <Snake />,
+        name: "snake"
     },
     {
         svg: <Spider />,
+        name: "spider"
     },
     {
         svg: <Squirrel />,
+        name: "squirrel"
     },
     {
         svg: <Swan />,
+        name: "swan"
     },
     {
         svg: <Turtle />,
+        name: "turtle"
     },
 ];

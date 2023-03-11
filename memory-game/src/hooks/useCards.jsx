@@ -26,8 +26,6 @@ export const useCards = ({ level }) => {
     setCards(cardArr);
   }, [level]);
 
-  console.log("cards useCards", cards);
-
   return {
     cards,
   };

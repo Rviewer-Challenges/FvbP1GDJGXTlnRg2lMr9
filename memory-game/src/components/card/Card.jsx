@@ -7,9 +7,7 @@ export const Card = ({ card, handleChoice, isSelected }) => {
       <div className="flip-card-inner">
         <div className="flip-card-back">{card.svg}</div>
         <div className="flip-card-front" onClick={() => handleChoice(card)}>
-          <h1>John Doe</h1>
-          <p>Architect & Engineer</p>
-          <p>We love that guy</p>
+          <p>xxxx</p>
         </div>
       </div>
     </div>

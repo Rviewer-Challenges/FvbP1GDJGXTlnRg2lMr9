@@ -1,13 +1,16 @@
 .grid {
     display: grid;
     gap: 1rem;
-    grid-row: repeat(5, 16rem);
 }
-.grid.easy,
+
+.grid.easy {
+    grid-template-columns: repeat(4, 14rem);
+}
+
 .grid.medium {
-    grid-template-columns: repeat(4, 16rem);
+    grid-template-columns: repeat(4, 14rem);
 }
 
 .grid.difficult {
-    grid-template-columns: repeat(5, 16rem);
+    grid-template-columns: repeat(6, 14rem);
 }

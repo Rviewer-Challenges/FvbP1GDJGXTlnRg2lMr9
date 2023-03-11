@@ -14,12 +14,14 @@ export function useLevelContext() {
 }
 
 export function GameProvider(props) {
-  const { selectedLevel, handleLevel, levels } = useLevel();
+  const { selectedLevel, handleLevel, levels, resetLevel } = useLevel();
   const { cards } = useCards({ level: selectedLevel });
 
   return (
     <CardContext.Provider value={{ cards }}>
-      <LevelContext.Provider value={{ selectedLevel, handleLevel, levels }}>
+      <LevelContext.Provider
+        value={{ selectedLevel, handleLevel, levels, resetLevel }}
+      >
         {props.children}
       </LevelContext.Provider>
     </CardContext.Provider>

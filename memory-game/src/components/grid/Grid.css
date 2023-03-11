@@ -1,0 +1,12 @@
+.grid {
+    display: grid;
+}
+.grid.easy {
+    grid-template-columns: repeat(4, 1fr);
+}
+.grid.medium {
+    grid-template-columns: repeat(4, 1fr);
+}
+.grid.difficult {
+    grid-template-columns: repeat(5, 1fr);
+}

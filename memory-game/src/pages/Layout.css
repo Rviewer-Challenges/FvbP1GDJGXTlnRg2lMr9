@@ -1,0 +1,16 @@
+.layout {
+   min-width: 100vw;
+   min-height: 100vh;
+}
+
+.layout main {
+   width: 100%;
+}
+
+footer {
+   position: fixed;
+   bottom: 0;
+   display: flex;
+   justify-content: center;
+   width: 100vw;
+}

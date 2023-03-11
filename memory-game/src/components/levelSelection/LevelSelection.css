@@ -1,0 +1,18 @@
+.levelSelection {
+    width: 100%;
+}
+
+.levelSelection__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.levelSelection__content-level {
+    cursor: pointer;
+    padding: 20px 20px;
+    border: 1px solid black;
+    flex: 1;
+    max-width: 250px;
+}

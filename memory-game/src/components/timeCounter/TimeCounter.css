@@ -1,0 +1,14 @@
+.timeCounter {
+    border: var(--border-1);
+    border-radius: var(--border-radius);
+    display: flex;
+    text-align: center;
+    font-size: 16px;
+    gap: 5px;
+    padding: 0 40px;
+    align-items: center;
+}
+
+/* .timeCounter.red {
+    border: var(--border-3);
+} */

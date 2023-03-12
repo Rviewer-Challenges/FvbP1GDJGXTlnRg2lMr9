@@ -4,11 +4,12 @@ import "./LevelSelection.css";
 
 export const LevelSelection = () => {
   const { handleLevel, levels } = useLevelContext();
+  // to do what role should this component have?
   return (
-    <section className="levelSelection">
+    <section className="levelSelection" title="Level selection" role="article">
       <ul className="levelSelection__content">
         {levels?.length
-          ? levels.map((level, i) => (
+          ? levels.map((level) => (
               <li
                 key={level.id}
                 className="levelSelection__content-level"

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
 }
 
 .boardGamePage__info {
@@ -9,4 +10,9 @@
     flex-direction: row;
     gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.boardGamePage h1 span {
+    text-transform: capitalize;
 }

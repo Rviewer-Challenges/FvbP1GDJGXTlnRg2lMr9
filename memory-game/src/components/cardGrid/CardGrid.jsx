@@ -45,7 +45,6 @@ export const CardGrid = ({ moveCounter, remainingPairsCounter, game }) => {
     }
   }, [choiceOne, choiceTwo]);
 
-  console.log("game", game.result);
   return (
     <>
       <Grid className="cardGrid">

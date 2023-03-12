@@ -2,19 +2,20 @@ import { useEffect, useState } from "react";
 
 // to do handle winner when all pairs are flipped
 export const useGame = ({ timer, remainingPairsCounter }) => {
+  const [started, setStarted] = useState(false);
   const [isActive, setGameActive] = useState(true);
   const [result, setGameResult] = useState("default");
   const allPairsDiscovered =
     remainingPairsCounter.initialized && remainingPairsCounter.counter === 0;
   const timeFinished = timer?.timeFinished;
-  console.log("remainingPairsCounter", remainingPairsCounter);
-  console.log("allPairsDiscovered", allPairsDiscovered);
+
   const pause = () => {
     setGameActive(false);
     timer.pause();
   };
   const start = () => {
     setGameActive(true);
+    setStarted(true);
     timer.restart();
   };
 
@@ -43,5 +44,6 @@ export const useGame = ({ timer, remainingPairsCounter }) => {
     pause,
     start,
     result,
+    started,
   };
 };

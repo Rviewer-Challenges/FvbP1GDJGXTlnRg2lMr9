@@ -23,7 +23,9 @@ export const BoardGamePage = () => {
 
   return (
     <div className="boardGamePage">
-      <h1>BoardGamePage {selectedLevel.level}</h1>
+      <h1>
+        Level: <span>{selectedLevel.level}</span>
+      </h1>
       <div className="boardGamePage__info">
         <div>
           <button onClick={() => resetLevel()}>Change Level</button>
@@ -35,11 +37,8 @@ export const BoardGamePage = () => {
             <button onClick={() => game.start()}>Start Game</button>
           )}
         </div>
-        <Counter num={moveCounter.counter} text={"move counter"} />
-        <Counter
-          num={remainingPairsCounter.counter}
-          text={"Remaining pairs counter"}
-        />
+        <Counter num={moveCounter.counter} text={"Moves"} />
+        <Counter num={remainingPairsCounter.counter} text={"Remaining pairs"} />
         <TimeCounter timer={timer} />
       </div>
       <CardGrid

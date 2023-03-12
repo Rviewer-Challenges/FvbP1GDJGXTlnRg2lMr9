@@ -14,3 +14,19 @@ footer {
    justify-content: center;
    width: 100vw;
 }
+
+header {
+   padding: 20px 0px;
+}
+
+header svg {
+   max-width: 50px;
+   max-height: 50px;
+}
+
+.header-content {
+   display: flex;
+   gap: 10px;
+   font-size: 22px;
+   text-transform: uppercase;
+}

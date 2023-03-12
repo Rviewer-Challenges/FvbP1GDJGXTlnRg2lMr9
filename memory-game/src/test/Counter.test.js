@@ -1,16 +1,16 @@
 import { render, screen } from '@testing-library/react';
+import { Counter } from '../components/counter/Counter';
 import { GameProvider } from '../context/gameContext';
-import { LevelSelection } from "./../components/levelSelection/LevelSelection"
 
-describe('Level selection component', () => {
+describe('Counter component', () => {
     let article;
     beforeEach(() => {
         render(
             <GameProvider>
-                <LevelSelection />
+                <Counter />
             </GameProvider>
         );
-        article = screen.getByRole('article', { name: 'Level selection' });
+        article = screen.getByRole('article', { name: 'Counter' });
     })
 
     test('Level selection is in document with value 0', () => {

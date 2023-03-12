@@ -1,15 +1,42 @@
+:root {
+  --color-misty-rose: #fee6e3;
+  --color-misty-rose-2: #ffdeda;
+  --color-black: #111;
+  --color-silver: #BBBBBB;
+  --color-dodger-blue: #1e90ff;
+  --color-white: white;
+  --color-white-smoke: #f1f1f1;
+
+  --bg-color-1: var(--color-misty-rose);
+  --bg-color-1-darker: var(--color-misty-rose-2);
+
+  --bg-color-2: var(--color-black);
+  --bg-color-3: var(--color-silver);
+  --bg-color-4: var(--color-dodger-blue);
+  --bg-color-5: var(--color-white);
+
+  --fc-1: var(--color-black);
+  --fc-2: var(--color-white);
+
+  --border-1: 2px solid var(--color-black);
+  --border-2: 1px solid var(--color-white-smoke);
+  --border-3: 1px solid red;
+
+  --border-radius: 8px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif, 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1rem;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Inter', sans-serif, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
@@ -18,4 +45,65 @@ ul, ol {
   margin-block-start: 0em;
   margin-block-end: 0em;
   padding-inline-start: 0px;
+}
+
+
+
+/* CSS */
+button {
+  align-items: center;
+  background-color: var(--bg-color-1);
+  border: var(--border-1);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  color: var(--fc-1);
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:after {
+  background-color: var(--bg-color-2);
+  border-radius: var(--border-radius);
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+button:hover:after {
+  transform: translate(0, 0);
+}
+
+button:active {
+  background-color: var(--bg-color-1-darker);
+  outline: 0;
+}
+
+button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0 40px;
+  }
 }

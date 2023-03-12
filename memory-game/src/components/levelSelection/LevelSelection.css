@@ -11,12 +11,48 @@
 
 .levelSelection__content-level {
     cursor: pointer;
+    color: var(--fc-1);
     padding: 20px 20px;
-    border: 1px solid black;
+    background-color: var(--color-misty-rose);
+    border: var(--border-1);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
     flex: 1;
     max-width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    text-align: center;
+    height: 250px;
 }
+  
+.levelSelection__content-level:after {
+    background-color: var(--bg-color-2);
+    border-radius: var(--border-radius);
+    content: "";
+    display: block;
+    height: 250px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+  }
+  
+  .levelSelection__content-level:hover:after {
+    transform: translate(0, 0);
+  }
+  
+  .levelSelection__content-level:hover {
+    outline: 0;
+  }
+  
+
+  

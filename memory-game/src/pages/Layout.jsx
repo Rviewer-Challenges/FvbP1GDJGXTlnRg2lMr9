@@ -1,5 +1,7 @@
 import React from "react";
 import { Container } from "../components/Container/Container";
+import { ReactComponent as Logo } from "./../assets/svg/brain.svg";
+
 import "./Layout.css";
 
 export const Layout = ({ children }) => {
@@ -7,7 +9,10 @@ export const Layout = ({ children }) => {
     <div className="layout">
       <header className="App-header" role="banner">
         <Container>
-          <p>Memory game</p>
+          <div className="header-content">
+            <Logo />
+            <p>Animals memory</p>
+          </div>
         </Container>
       </header>
       <Container>

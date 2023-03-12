@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 export const useCounter = (num) => {
-  console.log("num", num);
   const [counter, setCounter] = useState(num);
+  const [initialized, setIsInitialized] = useState(false);
 
   const increase = () => {
     setCounter(counter + 1);
@@ -10,6 +10,7 @@ export const useCounter = (num) => {
 
   const reset = () => {
     setCounter(0);
+    setIsInitialized(false);
   };
 
   const decrease = () => {
@@ -18,6 +19,7 @@ export const useCounter = (num) => {
 
   useEffect(() => {
     setCounter(num);
+    setIsInitialized(true);
   }, [num]);
 
   return {
@@ -25,5 +27,6 @@ export const useCounter = (num) => {
     counter,
     reset,
     decrease,
+    initialized,
   };
 };

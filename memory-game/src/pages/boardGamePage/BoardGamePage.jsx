@@ -1,30 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { CardGrid } from "../../components/cardGrid/CardGrid";
 import { Counter } from "../../components/counter/Counter";
 import { TimeCounter } from "../../components/timeCounter/TimeCounter";
 import { useCardContext, useLevelContext } from "../../context/gameContext";
 import { useCountDown } from "../../hooks/useCountDown";
 import { useCounter } from "../../hooks/useCounter";
+import { useGame } from "../../hooks/useGame";
 
 import "./BoardGamePage.css";
 
 export const BoardGamePage = () => {
   const { resetLevel, selectedLevel } = useLevelContext();
   const { cards } = useCardContext();
-  const [gameActive, setGameActive] = useState(true);
   const timer = useCountDown({ counter: 60 });
   const pairs = cards?.length && cards.length / 2;
   const moveCounter = useCounter(0);
   const remainingPairsCounter = useCounter(pairs);
-
-  const pauseGame = () => {
-    setGameActive(false);
-    timer.pause();
-  };
-  const startGame = () => {
-    setGameActive(true);
-    timer.restart();
-  };
+  const game = useGame({
+    timer: timer,
+    remainingPairsCounter: remainingPairsCounter,
+  });
 
   return (
     <div className="boardGamePage">
@@ -34,10 +29,10 @@ export const BoardGamePage = () => {
           <button onClick={() => resetLevel()}>Change Level</button>
         </div>
         <div>
-          {gameActive ? (
-            <button onClick={() => pauseGame()}>Pause Game</button>
+          {game.isActive ? (
+            <button onClick={() => game.pause()}>Pause Game</button>
           ) : (
-            <button onClick={() => startGame()}>Start Game</button>
+            <button onClick={() => game.start()}>Start Game</button>
           )}
         </div>
         <Counter num={moveCounter.counter} text={"move counter"} />
@@ -48,7 +43,7 @@ export const BoardGamePage = () => {
         <TimeCounter timer={timer} />
       </div>
       <CardGrid
-        gameActive={gameActive}
+        game={game}
         moveCounter={moveCounter}
         remainingPairsCounter={remainingPairsCounter}
       />

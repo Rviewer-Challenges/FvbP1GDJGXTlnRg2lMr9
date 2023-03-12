@@ -1,34 +1,12 @@
 import { useEffect, useState } from "react";
 
-// export const useTimer = ({ seconds }) => {
-//   const [timeLeft, setTimeLeft] = useState(seconds);
-
-//   useEffect(() => {
-//     const intervalId = setInterval(() => {
-//       setTimeLeft((t) => t - 1);
-//     }, 1000);
-//     return () => clearInterval(intervalId);
-//   }, []);
-
-//   const stopTimer = () => {
-//     console.log("stopTimer");
-//   };
-
-//   return {
-//     timeLeft,
-//     stopTimer,
-//   };
-// };
-
 export const useCountDown = ({ counter }) => {
   const [time, setTime] = useState({
     second: "00",
-    minute: "00",
+    minute: "01",
     counter: counter ? counter : 60,
   });
   const [isActive, setIsActive] = useState(true);
-
-  console.log("counter", time.counter);
 
   useEffect(() => {
     let intervalId;
@@ -51,8 +29,6 @@ export const useCountDown = ({ counter }) => {
           minute: computedMinute,
           counter: prevState.counter - 1,
         }));
-        // setSecond(computedSecond);
-        // setMinute(computedMinute);
       }, 1000);
     }
 
@@ -61,10 +37,18 @@ export const useCountDown = ({ counter }) => {
 
   const pause = () => setIsActive(false);
   const restart = () => setIsActive(true);
+  const timeFinished =
+    parseInt(time.second, 0) <= 0 && parseInt(time.minute, 0) <= 0;
+
+  useEffect(() => {
+    timeFinished && pause();
+  }, [timeFinished]);
+
   return {
     pause,
     time,
     isActive,
     restart,
+    timeFinished,
   };
 };

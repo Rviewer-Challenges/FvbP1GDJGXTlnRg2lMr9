@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useCardContext } from "../../context/gameContext";
 import { Card } from "../card/Card";
+import { GameStatus } from "../gameStatus/GameStatus";
 import { Grid } from "../grid/Grid";
 import "./CardGrid.css";
 
-export const CardGrid = ({
-  moveCounter,
-  remainingPairsCounter,
-  gameActive,
-}) => {
+export const CardGrid = ({ moveCounter, remainingPairsCounter, game }) => {
   const { cards } = useCardContext();
   const [discoveredCards, setDiscoveredCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
@@ -48,13 +45,15 @@ export const CardGrid = ({
     }
   }, [choiceOne, choiceTwo]);
 
+  console.log("game", game.result);
   return (
     <>
       <Grid className="cardGrid">
+        {!game.isActive ? <GameStatus game={game} /> : null}
         {cards?.length
           ? cards.map((card, i) => (
               <Card
-                disabled={cardsDisabled || !gameActive}
+                disabled={cardsDisabled || !game.isActive}
                 key={i}
                 card={card}
                 handleChoice={handleChoice}
@@ -62,7 +61,6 @@ export const CardGrid = ({
               />
             ))
           : null}
-        <div className="cardGrid"></div>
       </Grid>
     </>
   );

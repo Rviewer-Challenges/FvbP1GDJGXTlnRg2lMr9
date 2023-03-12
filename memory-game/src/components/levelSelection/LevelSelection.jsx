@@ -14,7 +14,7 @@ export const LevelSelection = () => {
                 className="levelSelection__content-level"
                 onClick={() => handleLevel(level)}
               >
-                <h2>{level.level}</h2>
+                <h2>{level.level.toUpperCase()}</h2>
                 <p>{level.board}</p>
               </li>
             ))

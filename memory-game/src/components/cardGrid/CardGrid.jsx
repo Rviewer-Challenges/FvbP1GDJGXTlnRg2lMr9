@@ -4,11 +4,16 @@ import { Card } from "../card/Card";
 import { Grid } from "../grid/Grid";
 import "./CardGrid.css";
 
-export const CardGrid = ({ moveCounter, remainingPairsCounter }) => {
+export const CardGrid = ({
+  moveCounter,
+  remainingPairsCounter,
+  gameActive,
+}) => {
   const { cards } = useCardContext();
   const [discoveredCards, setDiscoveredCards] = useState([]);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [cardsDisabled, setCardDisabled] = useState(false);
 
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
@@ -23,13 +28,19 @@ export const CardGrid = ({ moveCounter, remainingPairsCounter }) => {
     setChoiceTwo(null);
     setChoiceOne(null);
     moveCounter.increase();
+    setCardDisabled(false);
+  };
+
+  const handleHits = () => {
+    setDiscoveredCards([...discoveredCards, choiceOne.id, choiceTwo.id]);
+    remainingPairsCounter.decrease();
   };
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setCardDisabled(true);
       if (choiceOne?.name === choiceTwo?.name) {
-        setDiscoveredCards([...discoveredCards, choiceOne.id, choiceTwo.id]);
-        remainingPairsCounter.decrease();
+        handleHits();
       }
       setTimeout(() => {
         resetTurn();
@@ -43,6 +54,7 @@ export const CardGrid = ({ moveCounter, remainingPairsCounter }) => {
         {cards?.length
           ? cards.map((card, i) => (
               <Card
+                disabled={cardsDisabled || !gameActive}
                 key={i}
                 card={card}
                 handleChoice={handleChoice}

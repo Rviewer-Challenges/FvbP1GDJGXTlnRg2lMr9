@@ -15,4 +15,8 @@
     border: 1px solid black;
     flex: 1;
     max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

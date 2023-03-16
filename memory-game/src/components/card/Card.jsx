@@ -6,7 +6,6 @@ import "./Card.css";
 export const Card = ({ card, handleChoice, isSelected, disabled }) => {
   return (
     <article
-      role="article"
       title="Memory card"
       className={`flip-card ${isSelected && "selected"}`}
     >

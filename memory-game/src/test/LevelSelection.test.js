@@ -3,18 +3,21 @@ import { GameProvider } from '../context/gameContext';
 import { LevelSelection } from "./../components/levelSelection/LevelSelection"
 
 describe('Level selection component', () => {
-    let article;
+    let region;
+    let list;
     beforeEach(() => {
         render(
             <GameProvider>
                 <LevelSelection />
             </GameProvider>
         );
-        article = screen.getByRole('article', { name: 'Level selection' });
+        region = screen.getByRole('region', { name: 'Level selection' });
+        list = screen.getByRole('list');
     })
 
-    test('Level selection is in document with value 0', () => {
-        expect(article).toBeInTheDocument();
+    test('Level selection is in document', () => {
+        expect(region).toBeInTheDocument();
+        expect(list).toBeInTheDocument();
     });
 
 });

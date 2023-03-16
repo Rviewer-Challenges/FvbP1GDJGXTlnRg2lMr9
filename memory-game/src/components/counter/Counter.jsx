@@ -3,13 +3,11 @@ import "./Counter.css";
 
 export const Counter = ({ num, text }) => {
   return (
-    <div className="counter" title="Counter" role="article">
-      {text ? (
-        <p>
-          <strong>{text}</strong>:
-        </p>
-      ) : null}
-      <p>{num}</p>
-    </div>
+    <article className="counter" title="Counter">
+      <p>
+        {text ? <strong>{text}</strong> : null}
+        <span>{num}</span>
+      </p>
+    </article>
   );
 };

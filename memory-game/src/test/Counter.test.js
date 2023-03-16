@@ -13,8 +13,9 @@ describe('Counter component', () => {
         article = screen.getByRole('article', { name: 'Counter' });
     })
 
-    test('Level selection is in document with value 0', () => {
+    test('counter is in document 0', () => {
         expect(article).toBeInTheDocument();
+        // expect(article.firstchild).toHaveValue()
     });
 
 });

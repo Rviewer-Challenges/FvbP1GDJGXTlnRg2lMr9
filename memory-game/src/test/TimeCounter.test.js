@@ -3,6 +3,7 @@ import { TimeCounter } from '../components/timeCounter/TimeCounter';
 import { GameProvider } from '../context/gameContext';
 
 describe('Time counter component', () => {
+    const time = "01:00"
     let article;
     beforeEach(() => {
         render(
@@ -16,5 +17,9 @@ describe('Time counter component', () => {
     test('Level selection is in document with value 0', () => {
         expect(article).toBeInTheDocument();
     });
+
+    // test('Level selection is in document with value 1:00', () => {
+    //     expect(article).toHaveTextContent(time);
+    // });
 
 });

@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { AnimalCards } from "../bd/AnimalCards";
+import { addIdToArrayObject } from "../utils/addIdToArrayObject";
+import { duplicateArray } from "../utils/duplicateArray";
 import { shuffleArrayFisherYates } from "../utils/shuffleArrayFisherYates";
+import { sliceArrayByStartEnd } from "../utils/sliceArrayByStartEnd";
 
-const duplicateCards = (arr) => [...arr, ...arr];
-const sliceArray = (arr, end) => arr.slice(0, end);
-const addCardIds = (arr) => arr.map((card) => ({ ...card, id: Math.random() }));
+const getCardsTotal = (level) => parseInt(level?.total, 0) / 2;
 
-const getCards = (level) => {
+const getCardsByLevel = (level) => {
+  if (!level) return [];
   let cards = [];
-  const cardsTotal = parseInt(level?.total, 0) / 2;
+  const cardsTotal = getCardsTotal(level);
   const cardsShuffled = shuffleArrayFisherYates(AnimalCards);
-  cards = sliceArray(cardsShuffled, cardsTotal);
-  cards = duplicateCards(cards);
-  cards = addCardIds(cards);
+  cards = sliceArrayByStartEnd(cardsShuffled, 0, cardsTotal);
+  cards = duplicateArray(cards);
+  cards = addIdToArrayObject(cards);
   cards = shuffleArrayFisherYates(cards);
 
   return cards;
@@ -22,7 +24,7 @@ export const useCards = ({ level }) => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    const cardArr = getCards(level);
+    const cardArr = getCardsByLevel(level);
     setCards(cardArr);
   }, [level]);
 

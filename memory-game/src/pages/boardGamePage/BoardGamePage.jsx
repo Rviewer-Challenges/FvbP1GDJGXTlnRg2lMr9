@@ -5,7 +5,7 @@ import { TimeCounter } from "../../components/timeCounter/TimeCounter";
 import { useCardContext, useLevelContext } from "../../context/gameContext";
 import { useCountDown } from "../../hooks/useCountDown";
 import { useCounter } from "../../hooks/useCounter";
-import { useGame } from "../../hooks/useGame";
+import { GAME_STATES, useGame } from "../../hooks/useGame";
 
 import "./BoardGamePage.css";
 
@@ -19,6 +19,7 @@ export const BoardGamePage = () => {
   const game = useGame({
     timer: timer,
     remainingPairsCounter: remainingPairsCounter,
+    moveCounter: moveCounter,
   });
 
   return (
@@ -26,15 +27,16 @@ export const BoardGamePage = () => {
       <h1>
         Level: <span>{selectedLevel.level}</span>
       </h1>
+      {/* <div> */}
       <div className="boardGamePage__info">
         <div>
           <button onClick={() => resetLevel()}>Change Level</button>
         </div>
         <div>
-          {game.isActive ? (
-            <button onClick={() => game.pause()}>Pause Game</button>
-          ) : (
+          {game.state === GAME_STATES.PAUSED ? (
             <button onClick={() => game.start()}>Start Game</button>
+          ) : (
+            <button onClick={() => game.pause()}>Pause Game</button>
           )}
         </div>
         <Counter num={moveCounter.counter} text={"Moves"} />
@@ -46,6 +48,7 @@ export const BoardGamePage = () => {
         moveCounter={moveCounter}
         remainingPairsCounter={remainingPairsCounter}
       />
+      {/* </div> */}
     </div>
   );
 };

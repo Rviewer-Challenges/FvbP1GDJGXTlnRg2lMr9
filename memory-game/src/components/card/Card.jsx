@@ -5,14 +5,11 @@ import "./Card.css";
 
 export const Card = ({ card, handleChoice, isSelected, disabled }) => {
   return (
-    <article
-      title="Memory card"
-      className={`flip-card ${isSelected && "selected"}`}
-    >
-      <div className="flip-card-inner">
-        <div className="flip-card-back">{card?.svg}</div>
+    <article title="Memory card" className={`card ${isSelected && "selected"}`}>
+      <div className="card__inner">
+        <div className="card__back">{card?.svg}</div>
         <div
-          className="flip-card-front"
+          className="card__front"
           onClick={() => !disabled && handleChoice(card)}
         >
           <CardBack />

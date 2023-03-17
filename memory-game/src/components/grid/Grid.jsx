@@ -6,6 +6,11 @@ export const Grid = ({ children, className }) => {
   const { selectedLevel } = useLevelContext();
 
   return (
-    <div className={`grid ${selectedLevel.level} ${className}`}>{children}</div>
+    <section
+      className={`grid ${selectedLevel.level} ${className}`}
+      role="region"
+    >
+      {children}
+    </section>
   );
 };

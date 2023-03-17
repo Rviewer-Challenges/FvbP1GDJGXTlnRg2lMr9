@@ -37,7 +37,15 @@ export const useGame = ({ timer, remainingPairsCounter, moveCounter }) => {
   };
 
   const handleGameState = () => {
-    allPairsDiscovered ? handleGameWinned() : handleGameOver();
+    if (allPairsDiscovered) {
+      setTimeout(() => {
+        handleGameWinned();
+      }, 500);
+    } else {
+      setTimeout(() => {
+        handleGameOver();
+      }, 200);
+    }
   };
 
   useEffect(() => {

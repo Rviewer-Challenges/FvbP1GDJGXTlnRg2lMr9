@@ -5,7 +5,7 @@ export const Counter = ({ num, text }) => {
   return (
     <article className="counter" title="Counter">
       <p>
-        {text ? <strong>{text}</strong> : null}
+        {text ? <strong>{text}: </strong> : null}
         <span>{num}</span>
       </p>
     </article>

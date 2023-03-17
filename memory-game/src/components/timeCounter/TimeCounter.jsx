@@ -4,17 +4,16 @@ import "./TimeCounter.css";
 export const TimeCounter = ({ timer }) => {
   const fewSecondsLeft = timer?.time?.second < 5 && timer?.time?.minute <= 0;
   return (
-    <div
+    <article
       className={`timeCounter ${fewSecondsLeft && "countdown"}`}
-      role="article"
       title="Time counter"
     >
       <p>
-        <strong>Time:</strong>
+        <strong>Time: </strong>
+        <span>
+          {timer?.time?.minute}:{timer?.time?.second}
+        </span>
       </p>
-      <span>
-        {timer?.time?.minute}:{timer?.time?.second}
-      </span>
-    </div>
+    </article>
   );
 };

@@ -7,12 +7,10 @@ import { useLevelContext } from "../../context/gameContext";
 import "./GameStatus.css";
 
 export const GameStatus = ({ game }) => {
-  console.log("game GameStatus", game);
   const { resetLevel } = useLevelContext();
-  console.log("game.started", game.started);
   return (
     <div className="gameStatus">
-      <div className="gameStatus-message">
+      <div role="alertdialog" aria-modal="true" className="gameStatus-message">
         {!game.started && game?.state === GAME_STATES.DEFAULT && (
           <>
             <h2>Ready?</h2>

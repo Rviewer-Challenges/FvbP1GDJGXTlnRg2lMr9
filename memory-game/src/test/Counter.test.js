@@ -13,9 +13,9 @@ describe('Counter component', () => {
         article = screen.getByRole('article', { name: 'Counter' });
     })
 
-    test('counter is in document 0', () => {
+    test('counter is in document ', () => {
         expect(article).toBeInTheDocument();
-        // expect(article.firstchild).toHaveValue()
     });
 
 });
+

@@ -7,12 +7,18 @@ export const useCountDown = ({ counter }) => {
     counter: counter ? counter : 60,
   });
   const [isActive, setIsActive] = useState(true);
+  const pause = () => setIsActive(false);
+  const restart = () => setIsActive(true);
+  const timeFinished =
+    parseInt(time.second, 0) <= 0 && parseInt(time.minute, 0) <= 0;
 
   useEffect(() => {
     let intervalId;
-
     if (isActive) {
       intervalId = setInterval(() => {
+        if (counter === 0) {
+          pause();
+        }
         const secondCounter = time.counter % 60;
         const minuteCounter = Math.floor(time.counter / 60);
 
@@ -24,6 +30,7 @@ export const useCountDown = ({ counter }) => {
           String(minuteCounter).length === 1
             ? `0${minuteCounter}`
             : minuteCounter;
+
         setTime((prevState) => ({
           second: computedSecond,
           minute: computedMinute,
@@ -35,14 +42,11 @@ export const useCountDown = ({ counter }) => {
     return () => clearInterval(intervalId);
   }, [isActive, time]);
 
-  const pause = () => setIsActive(false);
-  const restart = () => setIsActive(true);
-  const timeFinished =
-    parseInt(time.second, 0) <= 0 && parseInt(time.minute, 0) <= 0;
-
   useEffect(() => {
     timeFinished && pause();
   }, [timeFinished]);
+
+  console.log("time", time);
 
   return {
     pause,

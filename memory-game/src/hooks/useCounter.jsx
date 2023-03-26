@@ -2,31 +2,27 @@ import { useEffect, useState } from "react";
 
 export const useCounter = (num) => {
   const [counter, setCounter] = useState(num);
-  const [initialized, setIsInitialized] = useState(false);
 
-  const increase = () => {
+  const increment = () => {
     setCounter(counter + 1);
   };
 
   const reset = () => {
     setCounter(0);
-    setIsInitialized(false);
   };
 
-  const decrease = () => {
+  const decrement = () => {
     setCounter(counter - 1);
   };
 
   useEffect(() => {
     setCounter(num);
-    setIsInitialized(true);
   }, [num]);
 
   return {
-    increase,
+    increment,
     counter,
     reset,
-    decrease,
-    initialized,
+    decrement,
   };
 };

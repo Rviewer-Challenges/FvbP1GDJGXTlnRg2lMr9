@@ -12,10 +12,10 @@ import "./BoardGamePage.css";
 export const BoardGamePage = () => {
   const { resetLevel, selectedLevel } = useLevelContext();
   const { cards } = useCardContext();
-  const timer = useCountDown({ counter: 60 });
-  const pairs = cards?.length && cards.length / 2;
+  const timer = useCountDown();
+  const pairsTotal = cards?.length && cards.length / 2;
   const moveCounter = useCounter(0);
-  const remainingPairsCounter = useCounter(pairs);
+  const remainingPairsCounter = useCounter(pairsTotal);
   const game = useGame({
     timer: timer,
     remainingPairsCounter: remainingPairsCounter,

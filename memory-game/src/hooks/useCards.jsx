@@ -20,13 +20,13 @@ export const useCards = ({ level, moveCounter, remainingPairsCounter }) => {
   const resetTurn = () => {
     setChoiceTwo(null);
     setChoiceOne(null);
-    moveCounter.increase();
+    moveCounter.increment();
     setCardDisabled(false);
   };
 
   const handleHits = () => {
     setDiscoveredCards([...discoveredCards, choiceOne.id, choiceTwo.id]);
-    remainingPairsCounter.decrease();
+    remainingPairsCounter.decrement();
   };
 
   useEffect(() => {

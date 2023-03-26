@@ -1,6 +1,7 @@
 import React from "react";
 import { useCardContext } from "../../context/gameContext";
 import { useCards } from "../../hooks/useCards";
+import { GAME_STATES } from "../../hooks/useGame";
 import { Card } from "../card/Card";
 import { GameStatus } from "../gameStatus/GameStatus";
 import { Grid } from "../grid/Grid";
@@ -16,11 +17,11 @@ export const CardGrid = ({ moveCounter, remainingPairsCounter, game }) => {
   return (
     <>
       <Grid className="cardGrid">
-        {!game.isActive ? <GameStatus game={game} /> : null}
+        {game.state !== GAME_STATES.DEFAULT ? <GameStatus game={game} /> : null}
         {cards?.length
           ? cards.map((card, i) => (
               <Card
-                disabled={cardsDisabled || !game.isActive}
+                disabled={cardsDisabled || game.state !== GAME_STATES.DEFAULT}
                 key={i}
                 card={card}
                 handleChoice={handleChoice}

@@ -11,7 +11,7 @@ export const GameStatus = ({ game }) => {
   return (
     <div className="gameStatus">
       <div role="alertdialog" aria-modal="true" className="gameStatus-message">
-        {!game.started && game?.state === GAME_STATES.DEFAULT && (
+        {game?.state === GAME_STATES.INITIAL && (
           <>
             <h2>Ready?</h2>
             <button onClick={() => game.start()}>Start</button>
